@@ -1,0 +1,126 @@
+Locations for testing
+
+Rider:
+Wireless Para more 	: 22.767195, 88.384030
+
+
+
+
+
+Driver:
+
+Kalyani Highway more 	: 22.767483, 88.388119
+Barrackpore Station 	: 22.760488, 88.370280
+Lalkuthi 		: 22.766543, 88.369262
+Mangal Panday stop 	: 22.765144, 88.355200
+Titagarh market 	: 22.741617, 88.372768
+
+
+db.pods.find(
+   {
+     location:
+       { $near:
+          {
+            $geometry: { type: "Point",  coordinates: [ 22.767195, 88.384030 ] },
+	    $minDistance: 10,
+            $maxDistance: 1000
+          }
+       }
+   }
+)
+
+db.pods.createIndex( { location: "2dsphere" } )
+
+
+[
+  {
+    "id": "5cbf53124b69f61920caa984",
+    "name": "Rider Wireless Para",
+    "type": "rider",
+    "status": "idle",
+    "location": {
+      "x": 88.38403,
+      "y": 22.767195,
+      "type": "Point",
+      "coordinates": [
+        88.38403,
+        22.767195
+      ]
+    }
+  },
+  {
+    "id": "5cbf53fd4b69f61920caa985",
+    "name": "Rider Kalyani Highway more",
+    "type": "driver",
+    "status": "idle",
+    "location": {
+      "x": 88.388119,
+      "y": 22.767483,
+      "type": "Point",
+      "coordinates": [
+        88.388119,
+        22.767483
+      ]
+    }
+  },
+  {
+    "id": "5cbf54164b69f61920caa986",
+    "name": "Rider Barrackpore Station",
+    "type": "driver",
+    "status": "idle",
+    "location": {
+      "x": 88.37028,
+      "y": 22.760488,
+      "type": "Point",
+      "coordinates": [
+        88.37028,
+        22.760488
+      ]
+    }
+  },
+  {
+    "id": "5cbf542b4b69f61920caa987",
+    "name": "Rider Lalkuthi",
+    "type": "driver",
+    "status": "idle",
+    "location": {
+      "x": 88.369262,
+      "y": 22.766543,
+      "type": "Point",
+      "coordinates": [
+        88.369262,
+        22.766543
+      ]
+    }
+  },
+  {
+    "id": "5cbf54414b69f61920caa988",
+    "name": "Rider Mangal Panday stop",
+    "type": "driver",
+    "status": "idle",
+    "location": {
+      "x": 88.3552,
+      "y": 22.765144,
+      "type": "Point",
+      "coordinates": [
+        88.3552,
+        22.765144
+      ]
+    }
+  },
+  {
+    "id": "5cbf54574b69f61920caa989",
+    "name": "Rider Titagarh market",
+    "type": "driver",
+    "status": "idle",
+    "location": {
+      "x": 88.372768,
+      "y": 22.741617,
+      "type": "Point",
+      "coordinates": [
+        88.372768,
+        22.741617
+      ]
+    }
+  }
+]
