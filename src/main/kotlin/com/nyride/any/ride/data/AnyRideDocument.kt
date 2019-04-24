@@ -8,12 +8,17 @@ import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.repository.MongoRepository
 import org.springframework.stereotype.Repository
+import java.util.*
 
 @Document(collection = "pods")
 data class Pod(@Id var id:String?=null,
                var name: String,
+               @Indexed(unique=true)
+               var mobile: String,
+               var password: String,
                var type: String,
                var status: String,
+               var licenseNumber : String?=null,
                @Indexed(name = "2dsphere")
                var location: GeoJsonPoint)
 
@@ -24,4 +29,7 @@ interface PodRepository : MongoRepository<Pod, String>{
                                            status: String,
                                            point: Point,
                                            distance: Distance) : Iterable<Pod>
+
+
+    fun findByMobileAndPassword(mobile:String, password:String) : Optional<Pod>
 }
