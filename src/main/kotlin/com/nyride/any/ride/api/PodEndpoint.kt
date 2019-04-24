@@ -7,8 +7,10 @@ import org.springframework.data.geo.Metrics
 import org.springframework.data.geo.Point
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
+@CrossOrigin //Adding this so that it works from stackblitz
 @RequestMapping("/rest/v1/pod")
 class PodEndpoint(val podRepository: PodRepository){
 
